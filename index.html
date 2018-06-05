@@ -74,6 +74,8 @@
 
   <script>
     const secondHand = document.querySelector('.second-hand');
+    const minuiteHand = document.querySelector('.min-hand');
+    const hourHand = document.querySelector('.hour-hand');
 
     function setDate() {
       console.log('hi');
@@ -85,6 +87,15 @@
       const secondDegrees = ((seconds / 60) * 360) + 90;
       // select second hard and transform it
       secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+      //
+      // get Minutes
+      const minuites = now.getMinutes();
+      const minuiteDegrees = ((minuites / 60) * 360) + 90;
+      minuiteHand.style.transform = `rotate(${minuiteDegrees}deg)`;
+      // get hours
+      const hours = now.getHours();
+      const hoursDegrees = ((hours / 24) * 360) + 90;
+      hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
 
     }
     setInterval(setDate, 1000);
